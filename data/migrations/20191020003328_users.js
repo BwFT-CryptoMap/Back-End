@@ -3,10 +3,11 @@ exports.up = function(knex) {
     .createTable("users", users => {
       users.increments();
       users
-        .string("username", 50)
+        .string("username")
         .notNullable()
         .unique();
-      users.string("password", 128).notNullable();
+        users.string("password").notNullable();
+        users.string("email").notNullable();
     })
     .createTable("watchlist", watchlist => {
       watchlist.increments();
