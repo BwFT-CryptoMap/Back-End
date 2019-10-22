@@ -10,7 +10,7 @@ global.dbConfig = path.resolve(__dirname + "/data/dbConfig");
 console.log(dbConfig)
 
 // Import Routes
-const primaryRouter = require('./config/api/server')
+const primaryRouter = require('./api/server')
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
