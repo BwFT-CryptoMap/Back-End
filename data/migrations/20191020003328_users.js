@@ -3,7 +3,7 @@ exports.up = function(knex) {
     .createTable("users", users => {
       users.increments();
       users
-        .string("username", 8)
+        .string("username", 50)
         .notNullable()
         .unique();
       users.string("password", 128).notNullable();
@@ -25,5 +25,6 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTableIfExists('watchlist','users');
+  return knex.schema.dropTableIfExists('watchlist')
+  .dropTableIfExists('users')
 };

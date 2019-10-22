@@ -17,6 +17,7 @@ function findByUsername(username) {
     .first()
 }
 function findById(id){
+    console.log(id)
     return db(table)
     .where({id})
     .first()
@@ -33,6 +34,6 @@ function editById(id,update){
 }
 function add(obj){
     return db(table)
-    .insert(obj)
+    .insert(obj, 'id')
     .then(([id]) => findById(id))
 }
