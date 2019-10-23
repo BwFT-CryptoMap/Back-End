@@ -6,6 +6,6 @@ const watchlistRouter = require('./watchlist/watchlist-router')
 
 // use routes
 primaryRouter.use('/', authRouter)
-watchlistRouter.use('/watchlist', watchlistRouter)
+primaryRouter.use('/', watchlistRouter)
 
 module.exports = primaryRouter;

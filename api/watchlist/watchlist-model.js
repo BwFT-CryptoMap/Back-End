@@ -12,12 +12,12 @@ function find(){
     return db(table)
 }
 function findAllById(id){
-    return db(table)
-    .where({id})
-    .first()
+    console.log(id)
+    return db('watchlist')
+    .where({'user-id': id})
 }
 function remove(id) {
-    return db(table)
+    return db('watchlist')
     .where({id})
     .del()
 }
@@ -27,9 +27,9 @@ function editById(id,update){
     .update(update, '*');
 }
 function add(obj){
-    return db(table)
+    console.log(obj)
+    return db('watchlist')
     .insert(obj)
-    .then(findById(id))
 }
 function findWatchlistByUserId(userId){
     return db(`${table} as w`)

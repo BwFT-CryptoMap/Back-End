@@ -1,4 +1,8 @@
 // Update with your config settings.
+require('dotenv').config()
+
+// const staging = process.env.STAGE || secret.staging
+// const production = process.env.DATABASE_URL || secret.production
 
 module.exports = {
   development: {
@@ -18,18 +22,18 @@ module.exports = {
   },
 
   staging: {
-    client: "postgresql",
-    connection: {
-      database: "my_db",
-      user: "username",
-      password: "password",
-    },
+    client: "pg",
+    connection: 'staging', 
     pool: {
       min: 2,
       max: 10,
     },
     migrations: {
+      directory: "./data/migrations",
       tableName: "knex_migrations",
+    },
+    seeds: {
+      directory: "./data/seeds/",
     },
   },
 
@@ -38,6 +42,7 @@ module.exports = {
     connection: process.env.DATABASE_URL,
     migrations: {
       directory: "./data/migrations",
+      tableName: "knex_migrations"
     },
     seeds: {
       directory: "./data/seeds/",
