@@ -1,5 +1,4 @@
 // Update with your config settings.
-// const secret = require('./passwordsyo')
 require('dotenv').config()
 
 // const staging = process.env.STAGE || secret.staging
