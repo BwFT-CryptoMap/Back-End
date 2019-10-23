@@ -24,7 +24,7 @@ module.exports = {
 
   staging: {
     client: "pg",
-    connection: staging, 
+    connection: 'staging', 
     pool: {
       min: 2,
       max: 10,
