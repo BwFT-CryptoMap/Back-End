@@ -1,9 +1,9 @@
 // Update with your config settings.
-const secret = require('./passwordsyo')
+// const secret = require('./passwordsyo')
 require('dotenv').config()
 
-const staging = process.env.STAGE || secret.staging
-const production = process.env.DATABASE_URL || secret.production
+// const staging = process.env.STAGE || secret.staging
+// const production = process.env.DATABASE_URL || secret.production
 
 module.exports = {
   development: {
