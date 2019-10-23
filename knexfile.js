@@ -1,5 +1,10 @@
 // Update with your config settings.
-require('dotenv').config()
+const secret = require('./passwordsyo')
+
+
+const staging = process.env.STAGE || secret.staging
+const production = process.env.DATABASE_URL || secret.production
+
 module.exports = {
   development: {
     client: "sqlite3",
@@ -19,7 +24,7 @@ module.exports = {
 
   staging: {
     client: "pg",
-    connection: process.env.STAGE,
+    connection: staging, 
     pool: {
       min: 2,
       max: 10,
@@ -35,7 +40,7 @@ module.exports = {
 
   production: {
     client: "pg",
-    connection: process.env.DATABASE_URL,
+    connection: production,
     migrations: {
       directory: "./data/migrations",
       tableName: "knex_migrations"

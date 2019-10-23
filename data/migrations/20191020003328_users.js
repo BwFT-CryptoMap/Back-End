@@ -12,7 +12,7 @@ exports.up = function(knex) {
     .createTable("watchlist", watchlist => {
       watchlist.increments();
       watchlist
-        .integer("coin-id")
+        .string("coin-id")
         .unsigned()
         .notNullable();
       watchlist
