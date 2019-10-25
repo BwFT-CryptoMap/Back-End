@@ -1,13 +1,13 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script async>
-  (function() {
-    const getData = async () => {
-      const res = await axios.get(
+  (async function() {
+    const getData = () => {
+      axios.get(
         "https://data.messari.io/api/v1/markets/prices-legacy"
-      );
-      return res;
-    };
-
-    console.log(getData());
-  })();
+      )
+      .then(p => coinData.data = p.data.data)
+    }
+    console.log('Access coinData with global variable : coinData, ex: coinData.data')
+   await getData();
+  })((coinData = {}));
 </script>
