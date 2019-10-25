@@ -1,15 +1,13 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script async>
   (function() {
-    const getData = () => {
-      return axios
-        .get("https://data.messari.io/api/v1/markets/prices-legacy")
-        .then(coin => (res.data = { ...coin.data.data }));
+    const getData = async () => {
+      const res = await axios.get(
+        "https://data.messari.io/api/v1/markets/prices-legacy"
+      );
+      return res;
     };
 
-    getData();
-    alert(res.data)
-  })((res = {}));
-
-   
+    console.log(getData());
+  })();
 </script>
