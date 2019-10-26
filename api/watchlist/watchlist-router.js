@@ -22,11 +22,11 @@ router
     const {id}=req.params
     return dbModel.findAllById(id)
     .then(p=>{
-      console.log(p)
-      const newData = p.map(item => req.data.filter(dataItem => dataItem.id == item['coin-id']))
-      console.log(newData)
+      console.log("here",p)
+      const newData = req.data.find(coin => p[0]['coin-id'] === coin.id)
+      console.log("1",newData)
       res.status(200).json({message:`SUCCESS`,newData})})
-    .catch(e=>{res.status(404).json({message:'SOMEMESSAGE', ...e})})
+    .catch(e=>{res.status(500).json({message:'SOMEMESSAGE', ...e})})
 })
 
 router
